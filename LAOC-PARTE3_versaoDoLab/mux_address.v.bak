@@ -1,0 +1,17 @@
+module mux_address(clock, addressInRAM, addressInProcessor, wren, dataOut);
+	input wire clock;
+	input wire wren;
+	input wire [7:0] addressInRAM;
+	input wire [7:0] addressInProcessor;
+	
+	output reg [7:0] addressOut;
+
+	always @(posedge clock) begin
+		if(wren) begin
+			addressOut <= addressInProcessor;
+		end else begin 
+			addressOut <= addressInRAM;
+		end
+	end
+
+endmodule

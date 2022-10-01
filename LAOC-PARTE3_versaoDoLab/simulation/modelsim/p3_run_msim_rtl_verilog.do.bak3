@@ -1,0 +1,11 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3 {C:/Users/Italo/Downloads/LAOC-PARTE3/p3.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3 {C:/Users/Italo/Downloads/LAOC-PARTE3/p3_main.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3 {C:/Users/Italo/Downloads/LAOC-PARTE3/p3_cache.v}
+

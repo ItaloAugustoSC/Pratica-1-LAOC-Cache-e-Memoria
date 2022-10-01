@@ -1,0 +1,215 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do p3_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3
+# 
+# Top level modules:
+# 	p3
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3_main
+# 
+# Top level modules:
+# 	p3_main
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3_cache
+# 
+# Top level modules:
+# 	p3_cache
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module display
+# 
+# Top level modules:
+# 	display
+# 
+vsim +altera -L altera_mf_ver -do p3_run_msim_rtl_verilog.do -l msim_transcript -gui work.p3_main
+# vsim +altera -L altera_mf_ver -do p3_run_msim_rtl_verilog.do -l msim_transcript -gui work.p3_main 
+# Loading work.p3_main
+# Loading work.p3_cache
+# Loading work.p3
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.display
+# ** Warning: (vsim-3015) C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v(81): [PCDPC] - Port size (4 or 4) does not match connection size (10) for port 'entrada'. The port definition is at: C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v(1).
+# 
+#         Region: /p3_main/H3
+# do p3_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3
+# 
+# Top level modules:
+# 	p3
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3_main
+# 
+# Top level modules:
+# 	p3_main
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module p3_cache
+# 
+# Top level modules:
+# 	p3_cache
+# vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module display
+# 
+# Top level modules:
+# 	display
+# 
+force -freeze {sim:/p3_main/KEY[0]} 1 0, 0 {50 ps} -r 100
+force -freeze sim:/p3_main/clockRAM 1 0, 0 {7 ps} -r 15
+add wave -position end  sim:/p3_main/SW
+add wave -position end  sim:/p3_main/dataMemOut
+add wave -position end  sim:/p3_main/dataCacheOut
+add wave -position end  sim:/p3_main/dataOut
+add wave -position end  sim:/p3_main/writeBack
+add wave -position end  sim:/p3_main/hit
+add wave -position end  sim:/p3_main/exibirBlocoVia0Antes
+add wave -position end  sim:/p3_main/exibirBlocoVia1Antes
+
+force -freeze sim:/p3_main/SW 001000000000000000 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 000000100000000000 0
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 110000100000000101 0
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 110100100000000100 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 000010100000000000 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 110110100000000001 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 000000100000000000 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/p3_main/SW 000100100000000000 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/simulation/modelsim/wave.do

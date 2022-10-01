@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Italo\Downloads\LAOC-PARTE3_versaoDoLab\LAOC-PARTE3_versaoDoLab\LAOC-PARTE3_versaoDoLab\simulation\modelsim
+vdisplay
+!i10b 1
+!s100 IjZ2U<L_Yg:YG05?Hec]81
+Ik?IdOAF>bHBm]>7;b4`IW0
+V`Kf21^b<3<gfIIFcU7D8i2
+Z1 dC:\Users\Italo\Downloads\LAOC-PARTE3_versaoDoLab\LAOC-PARTE3_versaoDoLab\LAOC-PARTE3_versaoDoLab\simulation\modelsim
+Z2 w1663338576
+8C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v
+FC:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v
+L0 1
+Z3 OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1663368699.272000
+!s107 C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab|C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v|
+!s101 -O0
+Z4 o-vlog01compat -work work -O0
+Z5 !s92 -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab -O0
+vp3
+Id<T:f4G0ED5=C1i>YW_S=2
+VK>@O]TdTkX<LX`5iIac]a1
+R1
+R2
+8C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v
+FC:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v
+L0 39
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 Hd0kl?[6oE3T:2U?37Qf=2
+!s85 0
+!s108 1663368699.062000
+!s107 C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab|C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v|
+!s101 -O0
+vp3_cache
+I52S0E<`6Pgb=7H3H@@WiJ0
+Vz8d7GAVd15o`LcD_C=7US3
+R1
+w1663368645
+8C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v
+FC:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v
+L0 3
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 ^[ZcVNO=niA<z83:2Jcf22
+!s85 0
+!s108 1663368699.173000
+!s107 C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab|C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v|
+!s101 -O0
+vp3_main
+ILli_lHQF3n3BW[Z?>kTBL2
+Vkf_VFXh_JhD;@]fAWEB>l0
+R1
+w1663341920
+8C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v
+FC:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v
+L0 1
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 Y9Ic>=X=05Z<_c`GRDXk?3
+!s85 0
+!s108 1663368699.123000
+!s107 C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab|C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v|
+!s101 -O0

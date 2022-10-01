@@ -1,0 +1,296 @@
+module p3_cache(input[4:0] addr, 
+	input clock,
+	input wren,	
+	input [7:0] dataIn, // dado que esta indo do circuito para a cache
+	input [7:0] dataMemParaCache, // dado que esta indo da memoria para a cache
+	
+	output reg[7:0] dataOut, // o bloco da cache que está sendo enviado para o circuito
+	output reg cacheWriteBackMem, // sinal de acesso à memoria
+	output reg[7:0] dataCacheParaMem, // o bloco da cache que está sendo enviado para a memoria WRITE BACK
+	output reg hit,
+	output reg [8:0] blocoVia0,
+	output reg [8:0] blocoVia1,
+	output reg [8:0] blocoVia0Antes,
+	output reg [8:0] blocoVia1Antes,
+	output reg [1:0] indexOut);
+	
+	integer index;
+	
+	//8: Valid - 7: Dirty - 6: LRU - [5:3]: TAG - [2:0]: Dados
+	reg [8:0] cacheVia0 [0:3];
+	reg [8:0] cacheVia1 [0:3];
+	
+	
+		initial begin
+		cacheVia0[0]=9'b000100011;
+		cacheVia0[1]=9'b100000011;
+		//cacheVia0[2] não foi inicializada
+		cacheVia0[3]=9'b110000011;
+												// 17: wren - [15:11]: addr - [7:0]: in
+		cacheVia1[0]=9'b110101100;		//Ler essa posição: 001010000000000000
+		cacheVia1[1]=9'b110001111;		//Ler essa posição: 000010100000000000    -  MISS 000100100000000000 POSICAO 2 ou 9
+		//cacheVia1[2] não foi inicializada
+		//cacheVia1[3] não foi inicializada
+		end
+	
+	always @(posedge clock) begin
+		hit = 0;
+		index = addr[1:0];
+		dataOut = 8'b00000000;
+		indexOut = index;
+
+		// Se leitura da cache
+		if(clock == 1 && wren == 0) begin
+			// Via 0
+			if (cacheVia0[index][8] == 1 && // Valid
+				cacheVia0[index][5] == addr[4] && // TAG
+				cacheVia0[index][4] == addr[3] && // TAG
+				cacheVia0[index][3] == addr[2]) begin
+			
+				blocoVia0Antes = cacheVia0[index][8:0];
+			
+				// Atualizar LRU
+				cacheVia0[index][6] = 1;
+				
+				//Dado de saída
+				dataOut = cacheVia0[index][2:0];
+				
+				blocoVia0 = cacheVia0[index][8:0];
+				
+				//Write back zerado
+				cacheWriteBackMem = 0;
+				
+				// Atualizar variável HIT para 1
+				hit = 1;
+				
+			end
+			// Via 1
+			else if (cacheVia1[index][8] == 1 && // Valid
+				cacheVia1[index][5] == addr[4] && // TAG
+				cacheVia1[index][4] == addr[3] && // TAG
+				cacheVia1[index][3] == addr[2]) begin		
+			
+				blocoVia1Antes = cacheVia1[index][8:0];
+			
+				// Atualizar LRU
+				cacheVia1[index][6] = 1;
+				
+				//Dado de saída
+				dataOut = cacheVia1[index][2:0];
+				
+				blocoVia1 = cacheVia1[index][8:0];
+				
+				//Write back zerado
+				cacheWriteBackMem = 0;
+				
+				// Atualizar variável HIT para 1
+				hit = 1;
+				
+			end
+			else begin
+				// MISS em ambas vias
+				hit = 0;
+				
+				if(cacheVia0[index][6] == 0) begin // LRU
+				
+					blocoVia0Antes = cacheVia0[index][8:0];
+				
+					// Sinalizar write-back
+					if (cacheVia0[index][8] == 1 && // Valid
+						cacheVia0[index][7] == 1) begin
+						
+						cacheWriteBackMem = 1;
+						
+						//Dado para a memória
+						dataCacheParaMem = cacheVia0[index][2:0];
+						
+						// Atualizar dirty
+						cacheVia0[index][7] = 0;
+					end
+					 
+					// Atualizar Valid
+					cacheVia0[index][8] = 1;
+					
+					// Atualizar LRU
+					cacheVia0[index][6] = 1;
+					
+					// Atualizar TAG na cache
+					cacheVia0[index][5] = addr[4];
+					cacheVia0[index][4] = addr[3];
+					cacheVia0[index][3] = addr[2];
+					
+					// Atualizar Dado na cache
+					cacheVia0[index][2] = dataMemParaCache[2];
+					cacheVia0[index][1] = dataMemParaCache[1];
+					cacheVia0[index][0] = dataMemParaCache[0];
+					
+					blocoVia0 = cacheVia0[index][8:0];
+					
+					dataOut = cacheVia0[index][2:0];
+					
+				end
+				else if(cacheVia1[index][6] == 0) begin // LRU
+				
+					blocoVia1Antes = cacheVia1[index][8:0];
+				
+					// Sinalizar write-back
+					if (cacheVia1[index][8] == 1 && // Valid
+						cacheVia1[index][7] == 1) // Dirty
+					begin
+						cacheWriteBackMem = 1;
+						
+						//Dado para a memória
+						dataCacheParaMem = cacheVia1[index][2:0];
+						
+						// Atualizar dirty
+						cacheVia1[index][7] = 0;
+					end
+				
+					// Atualizar Valid
+					cacheVia1[index][8] = 1;
+				
+					// Atualizar LRU
+					cacheVia1[index][6] = 1;				
+					
+					// Atualizar TAG na cache
+					cacheVia1[index][5] = addr[4];
+					cacheVia1[index][4] = addr[3];
+					cacheVia1[index][3] = addr[2];
+					
+					// Atualizar Dado na cache
+					cacheVia1[index][2] = dataMemParaCache[2];
+					cacheVia1[index][1] = dataMemParaCache[1];
+					cacheVia1[index][0] = dataMemParaCache[0];
+					
+					blocoVia1 = cacheVia1[index][8:0];
+					
+					dataOut = cacheVia1[index][2:0];
+					
+					
+				end
+			end
+		end
+		
+		// Se escrita da cache
+		else if(clock == 1 && wren == 1) begin
+			// Via 0
+			if (cacheVia0[index][8] == 1 && // Valid
+				cacheVia0[index][5] == addr[4] && // TAG 
+				cacheVia0[index][4] == addr[3] && // TAG
+				cacheVia0[index][3] == addr[2])	 // TAG
+			begin
+				// Escrever o dado
+				cacheVia0[index][2] = dataIn[2];
+				cacheVia0[index][1] = dataIn[1];			
+				cacheVia0[index][0] = dataIn[0];
+
+				// Atualizar LRU
+				cacheVia0[index][6] = 1;
+
+				// Atualizar Dirty
+				cacheVia0[index][7] = 1;
+
+				// Atualizar Valid
+				cacheVia0[index][8] = 1;
+
+				// Atualizar variável HIT para 1
+				hit = 1;
+
+			end
+			// Via 1
+			else if (cacheVia1[index][8] == 1 && // Valid
+				cacheVia1[index][5] == addr[4] && // TAG
+				cacheVia1[index][4] == addr[3] && // TAG
+				cacheVia1[index][3] == addr[2]) // TAG
+			begin
+				// Escrever o dado
+				cacheVia1[index][0] = dataIn[0];
+				cacheVia1[index][1] = dataIn[1];
+				cacheVia1[index][2] = dataIn[2];
+
+				// Atualizar LRU
+				cacheVia1[index][6] = 1;
+
+				// Atualizar Dirty
+				cacheVia1[index][7] = 1;
+				
+				// Atualizar Valid
+				cacheVia1[index][8] = 1;
+				
+				// Atualizar variável HIT para 1
+				hit = 1;
+							
+			end
+			else begin
+				// MISS
+				// Via 0
+				if(cacheVia0[index][6] == 0) begin // LRU
+					// Sinalizar write-back
+					if (cacheVia0[index][8] == 1 && // Valid
+						cacheVia0[index][7] == 1) // Dirty
+					begin
+						cacheWriteBackMem = 1;
+					end
+
+					// Sobrescrever o conteúdo
+					// Escrever o dado
+					cacheVia0[index][0] = dataIn[0];
+					cacheVia0[index][1] = dataIn[1];
+					cacheVia0[index][2] = dataIn[2];
+						
+					// Escrever TAG
+					cacheVia0[index][3] = addr[2];
+					cacheVia0[index][4] = addr[3];
+					cacheVia0[index][5] = addr[4];
+
+					// Atualizar LRU
+					cacheVia0[index][6] = 1;
+					
+					// Atualizar Dirty
+					cacheVia0[index][7] = 1;
+						
+					// Atualizar Valid
+					cacheVia0[index][8] = 1;
+						
+					// Atualizar variável HIT para 0
+					hit = 0;	
+					
+				end
+				// Via 1
+				else if(cacheVia1[index][6] == 0) begin	 // LRU
+					// Sinalizar write-back
+					if (cacheVia1[index][8] == 1 && // Valid
+						cacheVia1[index][7] == 1) // Dirty
+					begin
+						cacheWriteBackMem = 1;
+					end
+
+					// Sobrescrever o conteúdo
+					// Escrever o dado
+					cacheVia1[index][0] = dataIn[0];
+					cacheVia1[index][1] = dataIn[1];
+					cacheVia1[index][2] = dataIn[2];
+						
+					// Escrever TAG
+					cacheVia1[index][3] = addr[2];
+					cacheVia1[index][4] = addr[3];
+					cacheVia1[index][5] = addr[4];
+					
+					// Atualizar LRU
+					cacheVia1[index][6] = 1;
+					
+					// Atualizar Dirty
+					cacheVia1[index][7] = 1;
+					
+					// Atualizar Valid
+					cacheVia1[index][8] = 1;
+						
+					// Atualizar variável HIT para 0
+					hit = 0;	
+					
+				end
+			end
+	 end 
+end
+
+endmodule

@@ -1,0 +1,12 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_main.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/p3_cache.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab {C:/Users/Italo/Downloads/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/LAOC-PARTE3_versaoDoLab/display.v}
+
